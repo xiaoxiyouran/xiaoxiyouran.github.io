@@ -1,0 +1,123 @@
+﻿<html>
+
+<head>
+<title>我的搜索</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+body {
+font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+font-size:14px;
+}
+
+h1 {
+margin-top:0px;
+margin-bottom:8px;
+}
+
+/* ���� */
+a {
+text-decoration:none;
+color:#1c00ff;
+}
+
+a:hover {
+color:#5f00e4;
+}
+fieldset.search_keleyi_com {
+padding: 0px;
+margin :120px auto auto 300px;
+border: none;
+width: 550px;/*232px;*/
+background:#e0e0e0;
+}
+
+fieldset.search_keleyi_com:hover {
+background: #a8a8a8;
+}
+.search_keleyi_com input, .search_keleyi_com button {
+border: none;
+float: left;
+}
+.search_keleyi_com input.box_keleyi_com {
+height: 40px;/*28px;*/
+width: 500px;/*200px;*/
+margin-right: 0px;
+padding-right: 0px;
+background: #e0e0e0;
+margin: 1px;
+}
+.search_keleyi_com input.box_keleyi_com:focus {
+background: #e8e8e8 ;
+outline: none;
+}
+.search_keleyi_com button.btn_keleyi_com {
+border: none;
+width: 28px;
+height: 40px;/*28px;*/
+margin: 0px auto;
+margin: 1px;
+padding-top: 0px;
+margin-left: 9px;
+background: url(search_blue.png) no-repeat center left;
+}
+.search_keleyi_com button.btn_keleyi_com:hover {
+background: url(search_black.png) no-repeat center left;
+}
+
+#gd{
+ <!--Firefox 3.6 -->
+background-image: -moz-linear-gradient(top, #00F, #F00); 
+<!-- Safari & Chrome --> 
+background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #00F),color-stop(1, #F00)); 
+  <!-- IE6 & IE7  -->
+filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#00F', endColorstr='#F00'); 
+ <!-- IE8  --> 
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#00F', endColorstr='#F00')"; 
+}
+
+
+-->
+</style>
+<!--设置背景图片格式-->
+
+
+<script>
+function ghtp() {
+    document.getElementById("gd").style.backgroundImage="url("+i+".jpg)";
+	j=Math.floor(Math.random()*1+1.5);
+    i=i+j;
+    if (i>24) i=Math.floor(Math.random()*23+1.5);
+}
+var i=Math.floor(Math.random()*23+1.5);
+setInterval("ghtp()",5000);
+
+function change(){
+   document.getElementById("gd").style.backgroundImage="url("+Math.floor(Math.random()*23+1.5)+".jpg)";
+}
+</script>
+
+
+
+</head>
+
+
+<!-- background="1.jpg" -->
+<body id="gd"  style="background-position: 50% 50%; background-repeat:no-repeat;" onload='change()'>
+
+<div>
+<h2></h2>
+<form method="get" id="searchform" action="http://www.sogou.com/web">
+<input type="hidden" name="ie" value="UTF-8"/>
+<fieldset class="search_keleyi_com">
+<!-- <input results="s" type="search" size="18%" maxlength="1000" name="query" value="" /> -->
+<input type="text" results="s" class="box_keleyi_com inputText_keleyi_com" name="query" id="s" maxlength="1000" placeholder="请输入.." x-webkit-speech>
+<button class="btn_keleyi_com" title="search_keleyi_com"> </button>
+</fieldset>
+</form>
+
+</div>
+
+</body>
+</html>

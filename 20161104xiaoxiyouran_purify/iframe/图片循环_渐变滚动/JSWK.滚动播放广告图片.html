@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+
+<style type="text/css">
+/*大图样式*/
+.ImgB{width:640px; height:320px; overflow:hidden; position:relative;}
+.ImgB div{position:absolute; top: 0px; left:0px; z-index: 5; width: 640px; height: 320px;}
+.ImgB div ul{ list-style:none; margin:0px; padding:0px;}
+.ImgB div ul li{ width:100%; position:relative;}
+.ImgB div ul li span{ position:absolute; left:0; top:300px; width:100%; height:20px; background:#ffffff;opacity:0.5;filter:alpha(opacity=50);}
+
+/*小图样式*/
+.ImgS{width:640px;height:66px;margin:0px;}
+.ImgS .active{background-position:0 top; }
+.ImgS div{width:120px; height:66px;FLOAT:left; background:url(img/travelshow_thumb_bg.png) no-repeat 0 bottom;cursor:pointer;}
+.ImgS div img{ margin:8px 0px 0px 2px;  }
+</style>
+
+<script type="text/javascript" src="JustWalking.js"></script>
+<script type="text/javascript" src="JustWalking.ad.js"></script>
+</head>
+
+<body>
+
+<!--大图变换区域 自定义属性focusId用于指定小图控制区域对象-->
+<div id="ImgB" focusId="ImgS" class="ImgB">
+		<div style="display: block;">
+			<ul>
+				<li>
+					<img width='640' height='320' border='0'  src='img/a1.jpg' />
+					<span>1</span>
+				</li>
+			</ul>
+		</div>
+		<div style="display: none;">
+			<ul>
+				<li>
+					<img width='640' height='320' border='0'  src='img/a2.jpg' />
+					<span>12</span>
+				</li>
+			</ul>
+		</div>
+		<div style="display: none;">
+			<ul>
+				<li>
+					<img width='640' height='320' border='0'  src='img/a3.jpg' />
+					<span>123</span>
+				</li>
+			</ul>
+		</div>
+		<div style="display: none;">
+			<ul>
+				<li>
+					<img width='640' height='320' border='0'  src='img/a4.jpg' />
+					<span>1234</span>
+				</li>
+			</ul>
+		</div>
+		<div style="display: none;">
+			<ul>
+				<li>
+					<img width='640' height='320' border='0'  src='img/a5.jpg' />
+					<span>12345</span>
+				</li>
+			</ul>
+		</div>	
+</div>
+<!--大图变换区域-->
+
+<!--小图控制区域 自定义属性cla为当其获取焦点时所调用的样式-->
+<div id="ImgS" class="ImgS" >
+		<div style="margin-right:10px;"  class="active" cla="active">
+			<img width='116' height='56' border='0' src='img/a1_s.jpg' />
+		</div>
+		<div style="margin-right:10px;" cla="active">
+			<img width='116' height='56' border='0' src='img/a2_s.jpg' />
+		</div>
+		<div style="margin-right:10px;" cla="active">
+			<img width='116' height='56' border='0' src='img/a3_s.jpg' />
+		</div>
+		<div style="margin-right:10px;" cla="active">
+			<img width='116' height='56' border='0' src='img/a4_s.jpg' />
+		</div>
+		<div cla="active">
+			<img width='116' height='56' border='0' src='img/a5_s.jpg' />
+		</div>
+</div>
+<!--小图控制区域-->
+<script language="javascript" type="text/javascript">
+JSWK.scrollAd.startPlay("ImgB:40:5000","top");/*默认从右至左滚动*/
+//JSWK.scrollAd.startPlay("ImgB:40:5000","top");/*加参数top，则从上至下滚动*/
+</script>
+</body>
+</html>
+
