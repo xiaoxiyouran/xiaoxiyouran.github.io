@@ -1000,6 +1000,31 @@ a.accordion-toggle  i{
   color:#000;
 }
 
+/* 站点流量统计格式*/
+#visit-info{
+  background: #fff url(../images/chuyinweilai.png) no-repeat 90% 0;
+  padding: 30px 0;
+}
+.visit-info i{
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  line-height: 60px;
+  color: #000;
+  background: #000;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.visit-info h2{
+  margin-top: 0;
+  color: #000;
+}
+
+.visit-info{
+  color:#000;
+}
+
 /*************************
 ********* About Us Page CSS ******
 **************************/
@@ -1926,12 +1951,13 @@ ul.social_icons li  a i{
   padding-top: 0;
 }
 
-#contact-page .contact-form 
+#contact-page .contact-form
 .form-group label {
   color: #4E4E4E;
   font-size: 16px;
   font-weight: 300;
 }
+
 
 .form-group .form-control {
   padding: 7px 12px;
