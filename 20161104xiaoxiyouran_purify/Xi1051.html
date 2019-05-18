@@ -1,0 +1,1779 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>晓汐悠然的个人 主页</title>
+
+<script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+function MM_displayStatusMsg(msgStr) { //v1.0
+  window.status=msgStr;
+  document.MM_returnValue = true;
+  showtime();
+}
+</script>
+<script language="javascript"> 
+function showtime()  //创建函数
+{
+    var now_time = new Date();  //创建时间对象的实例
+    var hours = now_time.getHours();  //获得当前小时数
+    var minutes = now_time.getMinutes();  //获得当前分钟数
+    var seconds = now_time.getSeconds();  //获得当前秒数
+    var timer = "" + ((hours > 12) ? hours - 12 : hours);  //将小时数值赋予变量timer
+    timer  += ((minutes < 10) ? ":0" : ":") + minutes;  //将分钟数值赋予变量timer
+    timer  += ((seconds < 10) ? ":0" : ":") + seconds;  //将秒数值赋予变量timer
+    timer  +=" " + ((hours > 12) ? "pm" : "am");  //将字符am或pm赋予变量timer
+    document.clock.show.value = timer;  //在名为clock的表单中输出变量timer的值 
+    setTimeout("showtime()",1000);  //设置每隔一秒钟自动调用一次showtime()函数
+
+}
+</script>
+<style type="text/css"></style>
+<!------------------------------------------------------------------------------------->
+<!--CSS:滚动栏的特效样式：5个任选一个-->
+<style>
+.test1::-webkit-scrollbar {
+ width: 8px;
+}
+ .test1::-webkit-scrollbar-track {
+ background-color:#808080;
+ -webkit-border-radius: 2em;
+ -moz-border-radius: 2em;
+ border-radius:2em;
+}
+ .test1::-webkit-scrollbar-thumb {
+ background-color:#ff4400;
+ -webkit-border-radius: 2em;
+ -moz-border-radius: 2em;
+ border-radius:2em;
+}
+
+.test2::-webkit-scrollbar {
+ width: 8px;
+}
+ .test2::-webkit-scrollbar-track {
+ background-color:#fff;
+ -webkit-border-radius: 2em;
+ -moz-border-radius: 2em;
+ border-radius:2em;
+ border:1px solid #ccc;
+}
+ .test2::-webkit-scrollbar-thumb {
+ background-color: #F90;
+ background-image: -webkit-linear-gradient(45deg,  rgba(255, 255, 255, .4) 25%,  transparent 25%,  transparent 50%,  rgba(255, 255, 255, .4) 50%,  rgba(255, 255, 255, .4) 75%,  transparent 75%,  transparent);
+ -webkit-border-radius: 2em;
+ -moz-border-radius: 2em;
+ border-radius:2em;
+}
+.test3::-webkit-scrollbar {
+ width: 12px;
+}
+ .test3::-webkit-scrollbar-track {
+ background-color:#f5f5f5;
+ -webkit-border-radius: 2em;
+ -moz-border-radius: 2em;
+ border-radius:2em;
+}
+ .test3::-webkit-scrollbar-thumb {
+ border-radius: 10px;
+ background-color: #FFF;
+ background-image: -webkit-gradient(linear,  40% 0%,  75% 84%,  from(#4D9C41),  to(#19911D),  color-stop(.6, #54DE5D));
+ -webkit-border-radius: 2em;
+ -moz-border-radius: 2em;
+ border-radius:2em;
+}
+/*.test4{
+	width:500px;
+	overflow:scroll !important;
+	width:600px;
+}
+.test4>div{
+	width:1000px;
+} */
+.test4::-webkit-scrollbar {
+ width: 12px;
+ height:12px;
+}
+ .test4::-webkit-scrollbar-track {
+ background-color:#f5f5f5;
+ -webkit-border-radius: 2em;
+ -moz-border-radius: 2em;
+ border-radius:2em;
+}
+ .test4::-webkit-scrollbar-thumb {
+ border-radius: 10px;
+ background-color: #F90;
+  background-image: -webkit-linear-gradient(90deg,  rgba(255, 255, 255, .4) 25%,  transparent 25%,  transparent 50%,  rgba(255, 255, 255, .4) 50%,  rgba(255, 255, 255, .4) 75%,  transparent 75%,  transparent);
+ -webkit-border-radius: 2em;
+ -moz-border-radius: 2em;
+ border-radius:2em;
+}
+.test5::-webkit-scrollbar {
+ width: 12px;
+ height:12px;
+}
+ .test5::-webkit-scrollbar-track {
+ background-color:#f5f5f5;
+
+}
+ .test5::-webkit-scrollbar-thumb {
+ background-color: #d52828;
+}
+</style>
+
+<!-------------------------日历的样式表(start)----------------------------------------------------->
+<style>
+#CalendarMain {
+	width: 100%;
+	height: 300px;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+	margin-top: none;
+}
+#title {
+	width: 100%;
+	height: 30px;
+	background-color: #b9121b;
+}
+.selectBtn {
+	font-weight: 900;
+	font-size: 15px;
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+	padding: 7px 10px 6px 10px;
+}
+.selectBtn:hover {
+	background-color: #1d953f;
+}
+.selectYear {
+	float: left;
+	margin-left:20%;
+	position: relative;
+}
+.selectMonth {
+	float: left;
+	margin-left: 8%;
+	position: relative;
+}
+.month {
+	float: left;
+	position: relative;
+}
+.nextMonth {
+	float: right;
+}
+.currentDay {
+	float: right;
+}
+#context {
+	background-color: #fff;
+	width: 100%;
+}
+.week {
+	width: 100%;
+	height: 5%;
+}
+.week>h3 {
+	float: left;
+	color: #808080;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	margin-top:1%;
+	/*margin-left:-1%;*/
+	position:relative;
+	font-size: 16px;
+}
+.dayItem {
+	float: left;
+}
+.lastItem {
+	color: #d1c7b7 !important;
+}
+.item {
+	color: #333;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	margin: 0;
+	font-family: "微软雅黑";
+	font-size: 13px;
+}
+.item:hover {
+	color: #b9121b;
+}
+.currentItem>a {
+	background-color: #b9121b;
+	width:25px;
+	line-height: 25px;
+	float: left;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	color: #fff;
+}
+#foots {
+	width: 100%;
+	height: 18%;/*35px;*/
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+	margin-top: -1px;
+}
+#footNow {
+	float: left;
+	margin: 6px 0 0 5px;
+	color: #009ad6;
+	font-family: "微软雅黑";
+}
+#Container {
+	overflow: hidden;
+	float: left;
+}
+#center {
+	width: 100%;
+	overflow: hidden;
+}
+#centerMain {
+	width: 300%;
+	margin-left: -100%;
+}
+#selectYearDiv {
+	float: left;
+	background-color: #fff;
+}
+#selectYearDiv>div {
+	float: left;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	border: 1px solid #ccc;
+	margin-left: -2%;/*-1px;*/
+	margin-top: -1%;/*-1px;*/
+	cursor: pointer;
+	color: #909090;
+}
+.currentYearSd, .currentMontSd {
+	color: #ff4400 !important;
+}
+#selectMonthDiv {
+	float: left;
+	background-color: #fff;
+}
+#selectMonthDiv>div {
+	color: #909090;
+	float: left;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	border: 1px solid #ccc;
+	margin-left:  -2%;/*-1px;*/
+	margin-top: -1%;/*-1px;*/
+	cursor: pointer;
+}
+#selectYearDiv>div:hover, #selectMonthDiv>div:hover {
+	background-color: #efefef;
+}
+#centerCalendarMain {
+	float: left;
+}
+</style>
+<!-----------------日历样式表（end）---------------------->
+
+<!-----------------日历的JavaScript的脚本（start）------------------------------------->
+<script type="text/javascript" src="http://www.pengyaou.com/jquery-1.4.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(e) {
+			CalendarHandler.initialize();
+		});
+
+		var CalendarHandler = {
+			currentYear: 0,
+			currentMonth: 0,
+			isRunning: false,
+			showYearStart:2009,
+			tag:0,
+			initialize: function() {
+				$calendarItem = this.CreateCalendar(0, 0, 0);
+				$("#Container").append($calendarItem);
+
+				$("#context").css("height", $("#CalendarMain").height() - 60 + "px");
+				$("#center").css("height", $("#context").height() - 30 + "px");
+				$("#selectYearDiv").css("height", $("#context").height() - 30 + "px").css("width", $("#context").width() + "px");
+				$("#selectMonthDiv").css("height", $("#context").height() - 30 + "px").css("width", $("#context").width() + "px");
+				$("#centerCalendarMain").css("height", $("#context").height() - 30 + "px").css("width", $("#context").width() + "px");
+
+				$calendarItem.css("height", $("#context").height() - 30 + "px"); //.css("visibility","hidden");
+				$("#Container").css("height", "0px").css("width", "0px").css("margin-left", $("#context").width() / 2 + "px").css("margin-top", ($("#context").height() - 30) / 2 + "px");
+				$("#Container").animate({
+					width: $("#context").width() + "px",
+					height: ($("#context").height() - 30) * 2 + "px",
+					marginLeft: "0px",
+					marginTop: "0px"
+				}, 300, function() {
+					$calendarItem.css("visibility", "visible");
+				});
+				$(".dayItem").css("width", $("#context").width() + "px");
+				var itemPaddintTop = $(".dayItem").height() / 6;
+				$(".item").css({
+					"width": $(".week").width() / 7 + "px",
+					"line-height": itemPaddintTop + "px",
+					"height": itemPaddintTop + "px"
+				});
+				$(".currentItem>a").css("margin-left", ($(".item").width() - 25) / 2 + "px").css("margin-top", ($(".item").height() - 25) / 2 + "px");
+				$(".week>h3").css("width", $(".week").width() / 7 + "px");
+				this.RunningTime();
+			},
+			CreateSelectYear: function(showYearStart) {
+				CalendarHandler.showYearStart=showYearStart;
+				$(".currentDay").show();
+				$("#selectYearDiv").children().remove();
+				var yearindex = 0;
+				for (var i = showYearStart; i < showYearStart+12; i++) {
+					yearindex++;
+					if(i==showYearStart){
+						$last=$("<div>往前</div>");
+						$("#selectYearDiv").append($last);
+						$last.click(function(){
+							CalendarHandler.CreateSelectYear(CalendarHandler.showYearStart-10);
+						});
+						continue;
+					}
+					if(i==showYearStart+11){
+						$next=$("<div>往后</div>");
+						$("#selectYearDiv").append($next);
+						$next.click(function(){
+							CalendarHandler.CreateSelectYear(CalendarHandler.showYearStart+10);
+						});
+						continue;
+					}
+					
+					if (i == this.currentYear) {
+						$yearItem=$("<div class=\"currentYearSd\" id=\"" + yearindex + "\">" + i + "</div>")
+					
+					}
+					else{
+						 $yearItem=$("<div id=\"" + yearindex + "\">" + i + "</div>");
+					}
+					$("#selectYearDiv").append($yearItem);
+					$yearItem.click(function(){
+						$calendarItem=CalendarHandler.CreateCalendar(Number($(this).html()),1,1);
+						$("#Container").append($calendarItem);
+						CalendarHandler.CSS()
+					    CalendarHandler.isRunning = true;
+					    $($("#Container").find(".dayItem")[0]).animate({
+						height: "0px"
+					    }, 300, function() {
+						$(this).remove();
+						CalendarHandler.isRunning = false;
+					    });
+						$("#centerMain").animate({
+						marginLeft: -$("#center").width() + "px"
+					}, 500);
+					});
+					if (yearindex == 1 || yearindex == 5 || yearindex == 9) $("#selectYearDiv").find("#" + yearindex).css("border-left-color", "#fff");
+					if (yearindex == 4 || yearindex == 8 || yearindex == 12) $("#selectYearDiv").find("#" + yearindex).css("border-right-color", "#fff");
+					
+				}
+				$("#selectYearDiv>div").css("width", ($("#center").width() - 4) / 4 + "px").css("line-height", ($("#center").height() - 4) / 3 + "px");
+				$("#centerMain").animate({
+					marginLeft: "0px"
+				}, 300);
+			},
+			CreateSelectMonth: function() {
+				$(".currentDay").show();
+				$("#selectMonthDiv").children().remove();
+				for (var i = 1; i < 13; i++) {
+					if (i == this.currentMonth) $monthItem=$("<div class=\"currentMontSd\" id=\"" + i + "\">" + i + "月</div>");
+					else  $monthItem=$("<div id=\"" + i + "\">" + i + "月</div>");
+					$("#selectMonthDiv").append($monthItem);
+					$monthItem.click(function(){
+						$calendarItem=CalendarHandler.CreateCalendar(CalendarHandler.currentYear,Number($(this).attr("id")),1);
+						$("#Container").append($calendarItem);
+						CalendarHandler.CSS()
+					    CalendarHandler.isRunning = true;
+					    $($("#Container").find(".dayItem")[0]).animate({
+						height: "0px"
+					    }, 300, function() {
+						$(this).remove();
+						CalendarHandler.isRunning = false;
+					    });
+						$("#centerMain").animate({
+						marginLeft: -$("#center").width() + "px"
+					}, 500);
+					});
+					if (i == 1 || i == 5 || i == 9) $("#selectMonthDiv").find("#" + i).css("border-left-color", "#fff");
+					if (i == 4 || i == 8 || i == 12) $("#selectMonthDiv").find("#" + i).css("border-right-color", "#fff");
+				}
+				$("#selectMonthDiv>div").css("width", ($("#center").width() - 4) / 4 + "px").css("line-height", ($("#center").height() - 4) / 3 + "px");
+				$("#centerMain").animate({
+					marginLeft: -$("#center").width() * 2 + "px"
+				}, 300);
+			},
+			IsRuiYear: function(aDate) {
+				return (0 == aDate % 4 && (aDate % 100 != 0 || aDate % 400 == 0));
+			},
+			CalculateWeek: function(y, m, d) {
+				var arr = "7123456".split("");
+				with(document.all) {
+					var vYear = parseInt(y, 10);
+					var vMonth = parseInt(m, 10);		
+					var vDay = parseInt(d, 10);
+				}
+				var week =arr[new Date(y,m-1,vDay).getDay()];
+				return week;
+			},
+			CalculateMonthDays: function(m, y) {
+				var mDay = 0;
+				if (m == 0 || m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
+					mDay = 31;
+				} else {
+					if (m == 2) {
+						//判断是否为芮年
+						var isRn = this.IsRuiYear(y);
+						if (isRn == true) {
+							mDay = 29;
+						} else {
+							mDay = 28;
+						}
+					} else {
+						mDay = 30;
+					}
+				}
+				return mDay;
+			},
+			CreateCalendar: function(y, m, d) {
+				$dayItem = $("<div class=\"dayItem\"></div>");
+				//获取当前月份的天数
+				var nowDate = new Date();
+				if(y==nowDate.getFullYear()&&m==nowDate.getMonth()+1||(y==0&&m==0))
+				$(".currentDay").hide();
+				var nowYear = y == 0 ? nowDate.getFullYear() : y;
+				this.currentYear = nowYear;
+				var nowMonth = m == 0 ? nowDate.getMonth() + 1 : m;
+				this.currentMonth = nowMonth;
+				var nowDay = d == 0 ? nowDate.getDate() : d;
+				$(".selectYear").html(nowYear + "年");
+				$(".selectMonth").html(nowMonth + "月");
+				var nowDaysNub = this.CalculateMonthDays(nowMonth, nowYear);
+				//获取当月第一天是星期几
+				//var weekDate = new Date(nowYear+"-"+nowMonth+"-"+1);
+				//alert(weekDate.getDay());
+				var nowWeek = parseInt(this.CalculateWeek(nowYear, nowMonth, 1));
+				//nowWeek=weekDate.getDay()==0?7:weekDate.getDay();
+				//var nowWeek=weekDate.getDay();
+				//获取上个月的天数
+				var lastMonthDaysNub = this.CalculateMonthDays((nowMonth - 1), nowYear);
+
+				if (nowWeek != 0) {
+					//生成上月剩下的日期
+					for (var i = (lastMonthDaysNub - (nowWeek - 1)); i < lastMonthDaysNub; i++) {
+						$dayItem.append("<div class=\"item lastItem\"><a>" + (i + 1) + "</a></div>");
+					}
+				}
+
+				//生成当月的日期
+				for (var i = 0; i < nowDaysNub; i++) {
+					if (i == (nowDay - 1)) $dayItem.append("<div class=\"item currentItem\"><a>" + (i + 1) + "</a></div>");
+					else $dayItem.append("<div class=\"item\"><a>" + (i + 1) + "</a></div>");
+				}
+
+				//获取总共已经生成的天数
+				var hasCreateDaysNub = nowWeek + nowDaysNub;
+				//如果小于42，往下个月推算
+				if (hasCreateDaysNub < 42) {
+					for (var i = 0; i <= (42 - hasCreateDaysNub); i++) {
+						$dayItem.append("<div class=\"item lastItem\"><a>" + (i + 1) + "</a></div>");
+					}
+				}
+
+				return $dayItem;
+			},
+			CSS: function() {
+				var itemPaddintTop = $(".dayItem").height() / 6;
+				$(".item").css({
+					"width": $(".week").width() / 7 + "px",
+					"line-height": itemPaddintTop + "px",
+					"height": itemPaddintTop + "px"
+				});
+				$(".currentItem>a").css("margin-left", ($(".item").width() - 25) / 2 + "px").css("margin-top", ($(".item").height() - 25) / 2 + "px");
+			},
+			CalculateNextMonthDays: function() {
+				if (this.isRunning == false) {
+					$(".currentDay").show();
+					var m = this.currentMonth == 12 ? 1 : this.currentMonth + 1;
+					var y = this.currentMonth == 12 ? (this.currentYear + 1) : this.currentYear;
+					var d = 0;
+					var nowDate = new Date();
+					if (y == nowDate.getFullYear() && m == nowDate.getMonth() + 1) d = nowDate.getDate();
+					else d = 1;
+					$calendarItem = this.CreateCalendar(y, m, d);
+					$("#Container").append($calendarItem);
+
+					this.CSS();
+					this.isRunning = true;
+					$($("#Container").find(".dayItem")[0]).animate({
+						height: "0px"
+					}, 300, function() {
+						$(this).remove();
+						CalendarHandler.isRunning = false;
+					});
+				}
+			},
+			CalculateLastMonthDays: function() {
+				if (this.isRunning == false) {
+					$(".currentDay").show();
+					var nowDate = new Date();					
+					var m = this.currentMonth == 1 ? 12 : this.currentMonth - 1;
+					var y = this.currentMonth == 1 ? (this.currentYear - 1) : this.currentYear;
+					var d = 0;
+					
+					if (y == nowDate.getFullYear() && m == nowDate.getMonth() + 1) d = nowDate.getDate();
+					else d = 1;
+					$calendarItem = this.CreateCalendar(y, m, d);
+					$("#Container").append($calendarItem);
+					var itemPaddintTop = $(".dayItem").height() / 6;
+					this.CSS();
+					this.isRunning = true;
+					$($("#Container").find(".dayItem")[0]).animate({
+						height: "0px"
+					}, 300, function() {
+						$(this).remove();
+						CalendarHandler.isRunning = false;
+					});
+				}
+			},
+			CreateCurrentCalendar: function() {
+				if (this.isRunning == false) {
+					$(".currentDay").hide();
+					$calendarItem = this.CreateCalendar(0, 0, 0);
+					$("#Container").append($calendarItem);
+					this.isRunning = true;
+					$($("#Container").find(".dayItem")[0]).animate({
+						height: "0px"
+					}, 300, function() {
+						$(this).remove();
+						CalendarHandler.isRunning = false;
+					});
+					this.CSS();
+					$("#centerMain").animate({
+						marginLeft: -$("#center").width() + "px"
+					}, 500);
+				}
+			},
+			RunningTime: function() {
+				var mTiming = setInterval(function() {
+					var nowDate = new Date();
+					var h=nowDate.getHours()<10?"0"+nowDate.getHours():nowDate.getHours();
+					var m=nowDate.getMinutes()<10?"0"+nowDate.getMinutes():nowDate.getMinutes();
+					var s=nowDate.getSeconds()<10?"0"+nowDate.getSeconds():nowDate.getSeconds();
+					var nowTime = h + ":" + m + ":" + s;
+					$("#footNow").html(nowTime);
+				}, 1000);
+
+			}
+		}
+</script>
+<!-----------------日历的JavaScript的脚本（end）------------------------------------->
+
+<!------------------------------------------------------------------------------------->
+<!--CSS全局区-->
+<style type="text/css">
+	.global_bai_kai {
+		font-family: "华文行楷", "华文隶书", "Adobe 楷体 Std R", "方正兰亭超细黑简体","宋体";
+		font-size: 14px;
+		color: #FFFFFF;
+	}
+	
+	html{
+		 scrollbar-face-color:#f6f6f6;
+		 scrollbar-highlight-color:#fff000;
+		 scrollbar-shadow-color:#ee00ee;
+		 scrollbar-3dlight-color:#ee222e;
+		 scrollbar-arrow-color:#ccc000;
+		 scrollbar-trace-color:#ddeecc;
+		 scrollbar-darkshadow-color:#fffddd;
+		 noresize:noresize;
+	}	
+	.style5 {
+	FONT-SIZE: 12px
+	}
+	BODY {
+		FONT-SIZE: 12px; COLOR: #000000;
+		font-family: "华文行楷", "华文隶书", "Adobe 楷体 Std R", "方正兰亭超细黑简体","宋体";
+	}
+	TD {
+		FONT-SIZE: 12px; COLOR: #000000
+	}
+	TH {
+		FONT-SIZE: 12px; COLOR: #000000
+	}
+	
+				
+	 a:link {
+		color:#0F0;
+		text-decoration:none;
+		font-size:15px;
+			}/**//* 超链接的样式 */
+	 a:visited { color:#FFF; text-decoration:none; }
+	 a:visited:hover { color:#FF0; text-decoration:underline; }
+	 a:hover { color:red; text-decoration:underline; }
+	 a:active { color:green; text-decoration:underline; }
+</style>
+<!------------------------------------------------------------------------------------->
+<!--CSS:head  表格区-->
+<style>
+	.head_table{
+		font-family: "华文行楷", "华文隶书", "Adobe 楷体 Std R", "方正兰亭超细黑简体","宋体";
+		width:100%;
+		height:30px;
+		background-color:#01A0C8;
+		border-top:none;
+		border-right:none;
+		border-bottom:0px solid #FFFFFF;
+		border-left:none;
+		}
+	.rightleft{
+		font-family:"宋体";
+		font-size:12px;
+		color:#FFFFFF;
+		height: auto;
+		}
+	#top_table_navigator li{
+		float:left;	
+		font-size:10px;	
+		font-family:"方正兰亭超细黑简体","宋体";
+		list-style-type:none;
+	}
+	#top_table_navigator li a{
+		color:#FFFFFF;
+		text-decoration:none;
+		padding-top:2px;
+		display:block;
+		width:46px;  /***导航栏的改宽度**********************************/
+		height:14px;
+		text-align:center;
+		background-color:#6600CC;
+		margin-left:0px;
+		/*position:relative;
+		top:-2px;*/
+		
+	}
+	#top_table_navigator li a:hover{
+		background-color:#9999FF;
+		color:#FFFFFF;
+	}
+	
+	.head_table_1td_glow{
+		font-family:"华文琥珀", "华文彩云", "华文隶书", "Adobe 楷体 Std R", "方正兰亭超细黑简体";
+		font-size:18px;
+		color:#F0C;
+		filter:Glow(Color=#87ca27,Strength=10);
+	}
+	.head_table_3td_nowrap 
+	{ 
+	table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+	word-break:keep-all;/* 不换行 */
+	white-space:nowrap;/* 不换行 */
+	overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+	} 
+	
+	.head_table_2td_table{
+		font-family:  "Adobe 楷体 Std R", "方正兰亭超细黑简体","宋体","华文行楷", "华文隶书";
+		font-size:12px;
+		color:#FFF;
+		width:100%;
+		height:auto;
+		background-color:#01A0C8;
+		border-top:none;
+		border-right:none;
+		border-bottom:none;
+		border-left:none;
+		text-align:center;
+		vertical-align:top;
+		}
+		
+	.head_table_row2_navigator{
+		font-family: "方正兰亭超细黑简体","宋体","Adobe 楷体 Std R","华文行楷", "华文隶书";
+		font-size:12px;
+		color:yellow;
+		/*color:#F7F179;*/
+		/*color:#FFF;*/
+		width:100%;
+		height:auto;
+		background-color:#01A0C8;
+		border-top:none;
+		border-right:none;
+		border-bottom:6px;
+		border-left:none;
+		text-align:center;
+		vertical-align:bottom;
+		}			
+
+</style>
+<!--几个搜索按钮-->
+<style type="text/css">
+.button1 {
+	display: inline-block;
+	zoom: 1;
+ *display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}
+.button1:hover {
+	text-decoration: none;
+}
+.button1:active {
+	position: relative;
+	top: 1px;
+}
+
+
+.blue {
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+	background: #0095cd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	background: -moz-linear-gradient(top, #00adee, #0078a5);
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+}
+.blue:hover {
+	background: #007ead;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top, #0095cc, #00678e);
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
+}
+.blue:active {
+	color: #80bed6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+	background: -moz-linear-gradient(top, #0078a5, #00adee);
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee');
+}
+.small {
+	font-size: 12px;
+	padding: .3em 1em .100em;
+}  
+.medium {
+	font-size: 12px;
+	padding: .4em 1.5em .42em;
+}   /*XX*/
+</style>
+<!------------------------------------------------------------------------------------->
+<!--CSS:center  表格区-->
+<style>
+	.center_table{
+		font-family: "华文行楷", "华文隶书", "Adobe 楷体 Std R", "方正兰亭超细黑简体","宋体";
+		background-color:#FCEBEB;
+		font-size:12px;
+		width:100%;
+		height:800px;
+		border-top:none;
+		border-right:none;
+		border-bottom:6px solid #FFFFFF;
+		border-left:none;
+		}
+		
+	#button {
+	width: 150px;
+	border-right: 1px solid #000;
+	border-bottom: 2px solid #FFF;  /*此行新增*/
+	padding: 0 0 1em 0;
+	/*margin-bottom: 0.5em;  /*1em*/ */
+	font-family: "宋体";
+	font-size: 13px;
+	background-color: #6CF;
+	color: #F52D40;
+	}
+	#button ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border: none;
+		}
+	#button li {
+		margin: 0;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		border-bottom-color: #FFFF00;
+	}
+	#button li a {
+	display: block;
+	padding: 5px 5px 5px 0.5em;
+	background-color: #60F;
+	color: #fff;
+	text-decoration: none;
+	width: 100%;
+	border-right-width: 10px;
+	border-left-width: 10px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #09F;
+	border-left-color: #09F;
+	}
+	html>body #button li a {
+	width: auto;
+	}
+	#button li a:hover {
+		background-color: #FFCC00;
+		color: #fff;
+		border-right-width: 10px;
+		border-left-width: 10px;
+		border-right-style: solid;
+		border-left-style: solid;
+		border-right-color: #FF00FF;
+		border-left-color: #FF00FF;
+	}
+						
+	.table_center_2td_table_classify{  /*每个分类的横条字属性设置*/
+	font-family:"华文琥珀", "华文彩云","华文行楷", "华文隶书", "Adobe 楷体 Std R", "方正兰亭超细黑简体","宋体";
+	font-size: 16px;
+	color: #FFFFFF;
+	}
+	#table_center_2td_table_td_link{
+		font-family:"宋体";
+		font-size:16px;
+		}
+	#table_center_2td_table_td_link   a{ color:#AF30C2; text-decoration:none; }
+	#table_center_2td_table_td_link   a:hover{ color:red; text-decoration:underline; }
+	#table_center_2td_table_td_link   a:active { color:green; text-decoration:underline; }
+	
+	.Android_table{
+		font-family: "宋体";
+		background-color:#FCEBEB;
+		font-size:12px;
+		width:100%;
+		height:auto;
+		border-top-width:0px;
+		border-right-width:0px;
+		border-bottom-width:0px;
+		border-left-width:0px;
+		}
+	.Android_table_1td{
+		font-family: "方正兰亭超细黑简体","宋体";
+		background-color:#FCEBEB;
+		font-size:14px;
+		width:5%;
+		height:auto;
+		border-top:none;
+		border-right:2px solid #00C;
+		border-bottom:none;
+		border-left:2px solid #00C;
+		text-align:center
+		}
+		
+		
+		/*中间区域右侧状态栏*/
+		.center_table_3td_table{
+		font-family: "华文隶书","Adobe 楷体 Std R", "方正兰亭超细黑简体","宋体","华文行楷", ;
+		font-size:12px;
+		color:#606;    /*蓝紫色*/
+		/*width:100%;*/
+		height:auto;
+		background-color:#F0DCC1; 
+		border-top:none;
+		border-right:none;
+		border-bottom:none;
+		border-left:none;
+		/*text-align:center;*/
+		vertical-align:top;
+		}
+</style>	
+
+<!------------------------------------------------------------------------------------->
+<!--CSS:foot  表格区-->
+<style type="text/css">
+    .foot_table{
+		font-family: "华文隶书", "Adobe 楷体 Std R", "方正兰亭超细黑简体","宋体";
+		background-color:#01A0C8;
+		font-size:12px;
+		width:100%;
+		height:50px;
+		border-top:none;
+		border-right:none;
+		border-bottom:4px solid #FFFFFF;
+		border-left:none;
+		/*position:fixed*/
+		}
+		
+	 .foot_table_1tr{
+	   font-family:auto;
+	   font-size:12px;
+	   color:white;
+	   width:100%;
+	   height:30%;	   
+	   vertical-align:middle;	  
+	 }
+	 .foot_table_2tr{
+	   font-family:auto;
+	   font-size:12px;
+	   color:white;
+	   width:100%;
+	   height:30%;		   
+	   vertical-align:middle;	  
+	 }
+	 .foot_table_3tr{
+	   font-family:auto;
+	   font-size:12px;
+	   color:white;
+	   width:100%;
+	   height:40%;		   
+	   vertical-align:bottom;	  
+	 }
+</style>
+
+
+
+<!----------------------------------记事本相关的css----------------------------------------------->
+<style type="text/css">          
+          #content #post,#comment p{zoom:1;
+		  font-family: "宋体","Times New Rome", ;
+		 font-size:12px;
+		 color:#606;  
+		  }
+          #content #post:after,
+		  #comment p:after{display:block; height:0; clear:both; visibility:hidden; overflow:hidden; content:'.';}
+          .transition{-webkit-transition:all 0.5s linear; -moz-transition:all 0.5s linear; -o-transition:all 0.5s linear; -ms-transition:all 0.5s linear; transition:all 0.5s linear;}
+          #content{margin:0 auto; width:300px; height=20px; overflow:hidden;}
+          #content #post{margin-bottom:1px; padding-bottom:1px; border-bottom:0px #d4d4d4 dashed;}
+          #content #post textarea{display:block; margin-bottom:10px; padding:5px; width:300px; height:30px; border:1px #d1d1d1 solid; border-radius:5px; resize:none; outline:none;}
+          #content #post textarea:hover{border:1px #9bdf70 solid; background:#f0fbeb;}
+         #content #post #postBt,#content #post #clearBt{
+		 margin-left:0px; 
+		 padding:0px; 
+		 float:right;
+		 font-family: "宋体","华文行楷", ;
+		 font-size:16px;
+		 color:#606;   
+		 }
+         #comment{overflow:hidden;}
+         #comment p{margin-bottom:0px; padding:0px; border-radius:2px;}
+         #comment p:nth-child(odd){border:1px solid #e3e197; background:#ffd;}
+         #comment p:nth-child(even){border:1px solid #adcd3c; background:#f2fddb;}
+         #comment p span{display:inline; float:left;}
+         #comment p .msg{width:60%; text-align:left;}
+         #comment p .datetime{width:40%; color:#999; text-align:right; align:right}
+          </style>
+        <script type="text/javascript">
+          var Storage =
+          {
+              saveData:function()//保存数据
+              {
+                  var data = document.querySelector("#post textarea");
+                  if(data.value != "")
+                  {
+                      var time = new Date().getTime() + Math.random() * 5;//getTime是Date对象中的方法，作用是返回 1970年01月01日至今的毫秒数
+                      localStorage.setItem(time, data.value + "|" + this.getDateTime());//将毫秒数存入Key值中，可以降低Key值重复率
+                      data.value = "";
+                      this.writeData();
+                  }
+                  else
+                  {
+                     alert("请填写您的留言！");
+                  }
+              },
+              writeData:function()//输出数据
+              {
+                  var dataHtml = "", data = "";
+                  for(var i = localStorage.length-1; i >= 0; i--)//效率更高的循环方法
+                  {
+                      data = localStorage.getItem(localStorage.key(i)).split("|");
+                      dataHtml += "<p><span class=\"msg\">" + data[0] + "</span><span class=\"datetime\">" + data[1] + "</span>"+"</p>";
+                  }
+                  document.getElementById("comment").innerHTML = dataHtml;
+              },
+              clearData:function()//清空数据
+              {
+                  if(localStorage.length > 0)
+                  {
+                      if(window.confirm("清空后不可恢复，是否确认清空？"))
+                      {
+                          localStorage.clear();
+                          this.writeData();
+                      }
+                  }
+                  else
+                  {
+                      alert("没有需要清空的数据！");
+                  }
+              },
+              getDateTime:function()//获取日期时间，例如 2012-03-08 12:58:58
+             {
+                  var isZero = function(num)//私有方法，自动补零
+                  {
+                      if(num < 10)
+                      {
+                        num = "0" + num;
+                      }
+                     return num;
+                  }
+                  
+                  var d = new Date();
+                  return d.getFullYear() + "-" + isZero(d.getMonth() + 1) + "-" + isZero(d.getDate()) + " " + isZero(d.getHours()) + ":" + isZero(d.getMinutes()) + ":" + isZero(d.getSeconds());
+              }            
+          }
+          
+          window.onload = function()
+          {
+              Storage.writeData();//当打开页面的时候，先将localStorage中的数据输出一边，如果没有数据，则输出空
+              document.getElementById("postBt").onclick = function(){Storage.saveData();}//发表评论按钮添加点击事件，作用是将localStorage中的数据输出
+              document.getElementById("clearBt").onclick = function(){Storage.clearData();}//清空所有已保存的数据
+          }
+         </script>
+<script type="text/css">		 
+.about_refLink span img{ width: 130px; height: 130px; border-radius: 100% }
+
+</script>
+<!------------------------------------------------------------------------------------->
+<!--meta-->
+<META content="MSHTML 6.00.2900.2995" name=GENERATOR>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+</head>
+
+<!------------------------------------------------------------------------------------->
+<body onload="MM_displayStatusMsg('欢迎访问晓汐悠然的主页！');return document.MM_returnValue" bgcolor="#FFFFFF" class="test3">
+<!------------------------------------------------------------------------------------->
+<!--CSS:head  表格区-->
+<table class="head_table">
+<tr border="0" style="border-color:#01A0C8">
+    <td width="150" >
+	<table>
+	  <tr border="0"  >
+		<td class="head_table_1td_glow">晓汐悠然的个人主页</td>
+	  </tr>	
+	  <tr border="1">
+	    <td>
+			<div class="clck" style="font-size:13px;"> 
+				<iframe class="c-weather"  scrolling="no"  height="25" frameborder="0" width="160" src="http://m.weather.com.cn/m/pn3/weather.htm" allowtransparency="true" marginwidth="0" marginheight="0" frameborder="0" align="left" >
+				</iframe>
+				<!-- <p> -->
+				<!-- <script> -->
+				<!-- var d = new Date(); -->
+				<!-- var ymd = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日", week = ['日', '一', '二', '三', '四', '五', '六']; -->
+				<!-- document.write("<a href=http://wannianli.1616.net>" + ymd +"<br/>" + "星期" + week[d.getDay()] + "</a>"); -->
+				<!-- </script> -->
+				<!-- </p> -->
+				<!-- <object height="40" width="110" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" id="clockswf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"> -->
+				<!-- <param value="img/clock.swf" name="movie"><param value="high" name="quality"><param value="transparent" name="wmode"><embed height="40" width="110" wmode="transparent" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" quality="high" id="clockswf" name="clockswf" src="img/clock.swf"> -->
+				<!-- </object> -->
+			</div>
+		 </td>
+		</tr>	
+	 </table>		
+	</td>
+    <td width="276" height="auto"  valign="top">
+      <table class="head_table_2td_table">
+        <tr>
+           <td width="100%">
+              <a href="http://www.weather.com.cn/weather/101020100.shtml">天气</a>&nbsp;
+              <a href="http://map.baidu.com/">地图</a>&nbsp;
+              <a href="http://rili.160.com/tools/webrili.html">日历</a>
+			  <a href="https://app.yinxiang.com/">笔记</a>
+            </td>
+        </tr>
+        <tr> 
+           <td width="100%" style="color:#FFFFFF" align=“left” valign="center">
+                今夕何夕兮搴舟中流，
+                今日何日兮得与王子同舟。<br/>
+                蒙羞被好兮不訾诟耻，
+                心几烦而不绝兮得知王子。<br/>
+                山有木兮木有枝，
+                心悦君兮君不知。
+           </td>
+        </tr>
+      </table>
+    </td>
+   <td width="564" valign="top">
+    <table width='100%' border="0" cellspacing="0" cellpadding="0" align="right" style="table-layout:fixed;">
+		<tr>
+		  <td width='141' align="left" class="head_table_3td_nowrap" nowrap="nowrap" >
+				<span class="global_bai_kai" onmouseover="MM_displayStatusMsg('欢迎访问晓汐悠然的主页');return document.MM_returnValue">邮箱:
+					<select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,1)">
+					  <option>请选择邮箱</option>
+					  <option value="http://email.163.com/">163邮箱</option>
+					  <option value="https://mail.qq.com/cgi-bin/loginpage">QQ邮箱</option>
+					  <option value="https://jaccount.sjtu.edu.cn/jaccount/jalogin?sid=jasjtumail&amp;returl=CGQdPRkf7rW8EgVoPHaEtepRwpi5sOZ8z5sreIRCSkndJ2Exysi74pfZfZfi%2FEJeP%2F61N4Dqhppr6E5E6q69VG8%3D&amp;se=CPn3K8Fs4Lc4yVlDGcD62tm%2Fc0HMTsX1wYDNrw%2FXHBLKeu2Hzf5krv4%3D#1">sjtu邮箱</option>
+					</select>
+				</span>
+		  </td>
+		  <td width="207" align="left" class="head_table_3td_nowrap" nowrap="nowrap"><span class="global_bai_kai">交大:</span>
+			  <select name="jumpMenu2" id="jumpMenu2" onchange="MM_jumpMenu('parent',this,1)" width="20" height="10">
+				<option value="#" selected="selected">请选择交大相关网站</option>
+				<option value="http://www.sjtu.edu.cn/" >交大主页</option>
+				<option value="http://www.sjtu.edu.cn/xiaoli/xlindex.jsp?urltype=tree.TreeTempUrl&wbtreeid=1242">交大公告</option>            
+				<option value="http://www.gs.sjtu.edu.cn/">研究生院</option>
+				<option value="http://www.yjs.sjtu.edu.cn/ssfw/login.jsp">研管理</option>
+				<option value="http://www.lib.sjtu.edu.cn/">图书馆</option>
+				<option value="http://affairs.sjtu.edu.cn/main.action###">事务中心</option>
+				<option value="https://pt.sjtu.edu.cn/index.php">葡萄</option>
+				<option value="http://tongqu.me/">同去</option>
+				<option value="https://bbs.sjtu.edu.cn/">BBS</option> 
+				<option value="http://ecard.sjtu.edu.cn/homeLogin.action">一卡通</option>
+			  </select>
+		  </td>
+          <td width="223" class="rightleft" nowrap="nowrap">
+            <p><a href="#"><font color="#FFFFFF" face="宋体">English</font></a>|<a href="#"><font color="#FFFFFF" face="宋体">中文</font></a>&nbsp;<a onClick="this.style.behavior='url(#default#homepage)';this.sethomepage('file:///C:/Users/ideapad/Desktop/xiaoxiyouran_4.html');"href="#"><font color="#FFFFFF" face="宋体">设为首页</font></a>
+             <span style="CURSOR: hand" onClick="window.external.addFavorite('file:///C:/Users/ideapad/Desktop/xiaoxiyouran_4.html#','添加收藏夹')" title="添加收藏夹"><font color="#FFFFFF" face="宋体">添加收藏夹</font></span>
+          </td>
+        </tr>
+        <tr>  
+            <td colspan="2" align="left" nowrap="nowrap" >
+					<span class="global_bai_kai">逝者如斯夫，不舍昼夜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span style="color: #FE7AA9"><span style="FONT-SIZE: 16px; COLOR: #FFFFFF">今天是
+					</span>
+					   <SCRIPT language=JavaScript>
+					   today=new Date();               
+					   function initArray(){  
+							name=navigator.appName;
+							if(name=="Microsoft Internet Explorer")    
+							   addYear=0;
+							else if(name=="Netscape") /*谷歌浏览器*/
+							   addYear=1900;
+							else
+							   addYear=1990;         
+							this.length=initArray.arguments.length               
+							for(var i=0;i<this.length;i++)               
+							this[i+1]=initArray.arguments[i]  }               
+							var d=new initArray(               
+							 "星期日",               
+							 "星期一",               
+							 "星期二",               
+							 "星期三",               
+							 "星期四",               
+							 "星期五",               
+							 "星期六");               
+						   document.write(               
+							 "<font color=#FBAE66 style='font-size:9pt;font-family: 宋体'> ",               
+							  today.getYear()+addYear,"年",               
+							  today.getMonth()+1,"月",               
+							  today.getDate(),"日   ",               
+							  d[today.getDay()+1],               
+							  "</font>" );                
+					</SCRIPT>
+				    </span>
+			</td>  
+            <td >
+			  <table width="100%">
+				 <tr> <td width="40%" valign="center" align="left">
+					   <form name="clock" onSubmit="0">   　　
+						<input type="text" name="show" size="8" style="background-color:#01A0C8; border-width:0; color:white"> 
+					   </form>
+				      </td>
+					  <td width="20%" align="left" valign="middle" class="global_bai_kai">
+							 <script language="javaScript">
+							<!--
+							now = new Date(),hour = now.getHours()
+							if(hour < 6){document.write("凌晨好!")}
+							else if (hour < 9){document.write("早上好!")}
+							else if (hour < 12){document.write("上午好!")}
+							else if (hour < 14){document.write("中午好!")}
+							else if (hour < 17){document.write("下午好!")}
+							else if (hour < 19){document.write("傍晚好!")}
+							else if (hour < 22){document.write("晚上好!")}
+							else {document.write("夜里好!")}
+							// -->
+							</script>
+					</td>
+                    <td width="auto%">					
+											<DIV >
+											<font face="宋体"  color="white">
+											  <u>
+                                                									
+												<span id="t_d"></span> 
+												<span id="t_h"></span> 
+												<span id="t_m"></span> 
+												<span id="t_s"></span> 
+											  </u>	
+											</font>	
+											</DIV> 
+											<script type="text/javascript"> 
+											function getRTime(){ 
+											var NowTime=new Date();   
+											name=navigator.appName;
+											if(name=="Microsoft Internet Explorer")    
+												addYear=0;
+											else if(name=="Netscape") /*谷歌浏览器*/
+												addYear=1900;
+											else
+												addYear=1990;  
+											var Now_year= NowTime.getYear()+addYear;
+											var Next_year=Now_year+1;
+											var EndTime= new Date(Next_year+'/01/01 00:00:00'); //截止时间 
+											var t =EndTime.getTime() - NowTime.getTime(); 
+										
+																						 
+											var d=Math.floor(t/1000/60/60/24); 
+											var h=Math.floor(t/1000/60/60%24); 
+											var m=Math.floor(t/1000/60%60); 
+											var s=Math.floor(t/1000%60); 
+											var year=NowTime.getYear()+1900;
+											document.getElementById("t_d").innerHTML = d + "D"; 
+											document.getElementById("t_h").innerHTML = h + "H"; 
+											document.getElementById("t_m").innerHTML = m + "M"; 
+											document.getElementById("t_s").innerHTML = s + "S"; 
+
+											} 
+											setInterval(getRTime,1000); 
+											</script> 
+                      </td>
+				 </tr>
+			  </table>
+			</td>       
+        </tr>
+      </table>
+    </td>
+</tr>
+<tr height="auto" border="0" > 
+    <table class="head_table_row2_navigator" border="0">  <!--bgcolor="" border="1"-->
+		<tr nowrap="nowrap">
+		  <td height="10px" colspan="1" align="left" valign="center" width="23%">
+			<div id="top_table_navigator" >
+			 <ul type="none">
+			 <li><a href="https://www.baidu.com/">百度</a></li>
+			 <li><a href="https://123.sogou.com/">搜狗</a></li>
+			 <li><a href="http://cn.bing.com/">Bing</a></li>
+			 <li><a href="https://sg.search.yahoo.com/">YAHOO</a></li>
+			 <li><a href="https://www.so.com/">360</a></li>
+			 <li><a href="http://www.chinaso.com/">国搜</a></li>
+			 <li><a href="http://www.yodao.com/">有道</a></li>
+			 </ul>
+			 </div>
+			</td>
+			
+			<td width="14%" align="left">
+				<form action="https://www.google.com/search" method="get">
+				  <input type="hidden" name="ie" value="UTF-8"/>
+				  <input results="s" type="search" size="18%" maxlength="1000"  name="q" value="" />
+				  <input type="submit" class="button1 blue small" value="google"/><a href="https://www.google.com"> 
+				  <!--   >>> --> 
+				  </a>
+			  </form>
+				</td>
+
+			<td width="14%" align="left">
+			   <form action="http://www.sogou.com/web" method="get" >
+					<input type="hidden" name="ie" value="UTF-8"/>
+					<div width="15px" nowrap="nowrap">
+					 <input results="s" type="search" size="18%" maxlength="1000" name="query" value="" />
+					 <input type="submit" class="button1 blue small" value="搜狗"/><a href="https://www.sogou.com/">
+					<!-- >>> --> 
+					 </a>
+					 <!-- <button class="button1 blue">Button Tag</button> -->
+					</div>
+			   </form>
+			</td>
+			<td width="14%" align="left">
+				<form action="https://www.baidu.com/s" method="get">
+				<input type="hidden" name="ie" value="UTF-8"/>
+				<input results="s" type="search" size="18%" maxlength="1000"  name="wd" value="" />
+				<input type="submit" class="button1 blue small" value="百度"/><a href="https://www.baidu.com/"><!--   >>> --> 
+				</a>
+				</form>
+		    </td>
+           
+		</tr>
+	 </table>	
+</tr>
+</table>
+<!------------------------------------------------------------------------------------->
+<!--CSS：center  表格区-->
+<table class="center_table">
+  <tr width="100%" align="left" valign="top">  
+    <td height="27" width="10%" bgcolor="#F0DCC1" align="left" >
+	<table border="0" width="100%">
+     <tr><td>
+			<div id="button"><ul>
+			 <li><a href="#ChangYong">常用</a></li>
+			 <li><a href="#DaoHang">导航</a></li>
+			 <li><a href="#GongJu">工具</a></li>
+			 <li><a href="#JiaoDa">交大</a></li>
+			 <li><a href="#GouWu">购物</a></li>
+			 <li><a href="#XinWen">新闻</a></li>
+			 <li><a href="#YinYue">音乐</a></li>
+			 <li><a href="#ShiPin">视频</a></li>
+			 <li><a href="#SheQu">社区</a></li>
+			 <li><a href="#Android">Android</a></li> 
+			 <li><a href="#XiangCe">相册</a></li> 
+			 <!--以下继续接其他链接添加--> 
+			 
+				  </ul>
+				  </div>
+		</td>
+	 </tr>	
+	<tr bgcolor="#0099CC">
+	   <td>
+	      <font face="华文彩云" size="2" color="white"><strong>友情链接</strong></font>
+	   </td>
+	
+	</tr>
+	<tr>
+	  <td style="overflow: hidden">
+        <div style="about_refLink"><span><a href="./memory/index.html"><img  src="./memory/images/bg.jpg" width="150px" height="80px"></a></span></div>
+      </td>	
+    </tr>
+    <tr>	
+      <td style="overflow: hidden">
+        <div style="about_refLink"><span><a href="./Search/search.html"><img  src="./Search/18.jpg" width="150px" height="80px" alt="我的搜索"></a></span></div>
+      </td>		  
+	</tr>
+	
+	<tr>	
+      <td style="overflow: hidden">
+        <div style="about_refLink"><span><a href="./LIFE/index.html"><img  src="./LIFE/Life.jpg" width="150px" height="80px" alt="Life"></a></span></div>
+      </td>		  
+	</tr>
+	
+	<tr>	
+      <td style="overflow: hidden">
+        <div style="about_refLink"><span><a href="./Planning/index.html"><img  src="./Planning/abstract.jpg" width="150px" height="80px" alt="Life"></a></span></div>
+      </td>		  
+	</tr>
+	
+	</table>
+	
+	</td>
+  <!---------------------主内容区------------------------------------->
+    <td width="65%" > <!--中央内部表格-->
+       <table width="100%" bgcolor="#F4F9F8">
+        <tr width="100%" >
+          <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+           <span class="table_center_2td_table_classify"><a name="ChangYong">常用</a></span>         
+          </td>
+        </tr>
+        <tr width="100%">
+          <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top"> 
+           <!-- <a href="http://www.hao123.com/gaoxiao/haomeizi/list">好妹子碎碎念</a>&nbsp; -->
+           <a href="http://www.hao123.com/top">hao123热搜</a>&nbsp;
+           <a href="http://mini.eastday.com/?qid=riliscj">东方头条</a>&nbsp;
+           <a href="http://toutiao.sogou.com/">搜狗头条</a>&nbsp;
+           <a href="http://www.huanqiu.com/">环球</a>&nbsp;
+           <a href="https://www.zhihu.com/">知乎</a>&nbsp;
+           <a href="http://tieba.baidu.com/index.html">百度贴吧</a>&nbsp;
+           <a href="http://weibo.com/xiaoxiyouran/home?wvr=5">新浪微博</a>&nbsp;
+           <a href="https://www.douban.com/">豆瓣</a>&nbsp;
+           <a href="http://www.mtime.com/">Mtime</a>&nbsp;
+           <a href="https://tuchong.com/">图虫</a>&nbsp;
+           <a href="http://www.wowenda.com/">百度云盘搜</a>&nbsp; 
+           <a href="https://www.taobao.com/">淘宝</a>&nbsp;  
+           <a href="http://music.163.com/">网易云音乐</a>&nbsp;  
+           <a href="http://v.sogou.com/">搜狗影视</a>&nbsp;
+           <a href="http://www.vip.com/">唯品会</a>&nbsp;      
+		   <a href="https://ju.taobao.com/">聚划算</a>&nbsp;
+		   <a href="http://gfsoso.99lb.net/"> 谷粉学术</a>&nbsp;
+          </td>
+        </tr>
+         <tr width="100%" >
+          <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+           <span class="table_center_2td_table_classify"><a name="DaoHang">导航</a></span>         
+          </td>
+         </tr>
+        <tr width="100%">
+          <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top"> 
+                  <a href="http://123.sogou.com/tools/index.html">搜狗网址导航</a>&nbsp;
+                  <a href="http://www.hao123.com/?tn=97162409_hao_pg">hao123</a>&nbsp;
+                  <a style="background-color: rgb(255,255,255)" href="http://hao.360.cn/">360</a>&nbsp;
+                  <a href="http://hao.qq.com/">QQ网址导航</a>&nbsp;
+                  <a href="http://site.baidu.com/">百度网址大全</a>&nbsp;
+                  <a href="http://hao.rising.cn/?b=15">瑞星导航</a>&nbsp;
+          </td>
+         </tr>
+          <tr width="100%" >
+            <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+           <span class="table_center_2td_table_classify"><a name="GongJu">工具</a></span>         
+             </td>
+          </tr>
+         <tr width="100%">
+          <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top"> 
+         		<a ADD_DATE="74799376680" href="http://map.baidu.com/">百度地图</a>&nbsp;
+                <a ADD_DATE="75541749752" href="http://map.sogou.com/">搜狗地图</a> &nbsp;
+                <a href="http://www.10086.cn/ln/">中国移动</a>&nbsp;
+				<a href="https://kyfw.12306.cn/otn/">12306</a> &nbsp;
+                <a ADD_DATE="37557948903" href="http://123.sogou.com/static/express.html">快递查询</a> &nbsp;
+                <a href="http://ask.39.net/">39问医生</a>&nbsp;    
+				<a ADD_DATE="75542522846" href="http://123.sogou.com/static/view_tools.html">实用查询</a>&nbsp;
+				<a href="http://www.caibangzi.com/">财帮子</a>&nbsp;
+                <a href="http://www.gq.com.cn/">GQ时尚</a>&nbsp;
+          </td>
+         </tr>
+          </tr>
+         <tr width="100%" >
+            <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+           <span class="table_center_2td_table_classify"><a name="JiaoDa">交大</a></span>         
+            </td>
+          </tr>
+          <tr width="100%">
+             <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top"> 
+                <a href="http://www.sjtu.edu.cn/">交大主页</a>&nbsp;
+                <a href="http://tongqu.me/">交大同去网</a>&nbsp;
+                <a href="https://pt.sjtu.edu.cn/login.php">葡萄</a>&nbsp;
+                <a href="https://bbs.sjtu.edu.cn/frame2.html">BBS</a>&nbsp;
+                <a href="http://www.lib.sjtu.edu.cn/">图书馆</a>&nbsp;
+                <a href="http://www.gs.sjtu.edu.cn/">交大研究生院</a>&nbsp;
+                <a href="https://mail.sjtu.edu.cn/zimbra/mail#1">交大邮箱</a>&nbsp;
+                <a href="ftp://portal.sjtu.edu.cn/Xi/">交大个人存储(500M)</a> &nbsp;          
+				<a href="http://www.yjs.sjtu.edu.cn/ssfw/login.jsp">研究生管理信息系统</a>&nbsp;
+                <a href="http://www.yjs.sjtu.edu.cn:81/epstar/web/outer/KKBJ_CX/kkbj.jsp">课表查询</a>&nbsp;
+                <a href="http://xsb.seiee.sjtu.edu.cn/xsb/index.htm">电院学生工作办公室</a>&nbsp;
+                <a href="http://affairs.sjtu.edu.cn/main.action">学生事务中心</a>&nbsp;
+				<a href="http://ourhome.sjtu.edu.cn/">交大家园网</a>&nbsp;
+                <a href="http://www.job.sjtu.edu.cn/">交大就业信息网</a>&nbsp;
+				<a href="http://net.sjtu.edu.cn/">交大网络信息中心</a>&nbsp;
+                <a href="http://yjwb.seiee.sjtu.edu.cn/yjwb/index.htm">交大电院研究生教务办</a> &nbsp;
+                <a href="http://zzb.sjtu.edu.cn/">交大党委组织部</a>&nbsp;
+                <a href="http://nimo.sjtu.edu.cn/aton/#home">交大宿舍网络管理</a> &nbsp;
+                <a href="http://sjtu.yousi.com/">交大家教部</a>&nbsp;
+				<a href="https://jaccount.sjtu.edu.cn/jaccount/login?sid=jagraduate20130107&returl=CKZfB1VXTbnV+uXQIDPkmFToZ/DNONvmFpjZlyEXfzhAVnveIq6YWSyXdX+X%2">JAcount登录</a>&nbsp;
+                <a href="http://alumni.sjtu.edu.cn/newalu/Index.php">交大校友会</a>&nbsp;
+				<a href="http://www.yiqixxx.com/29/g/?labelId=10">一起上海-相亲</a>&nbsp;
+				<a href="http://ssc.sjtu.edu.cn/">一站式学生服务中心</a>&nbsp;
+              </td>
+           </tr>
+           <tr width="100%" >
+            <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+           <span class="table_center_2td_table_classify"><a name="GouWu">购物</a></span>         
+             </td>
+          </tr>
+           <tr width="100%">
+             <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top"> 
+                <a href="http://www.taobao.com/">淘宝</a>&nbsp;
+                <a href="http://www.360buy.com/">京东商城</a>&nbsp;
+                <a href="http://www.amazon.cn/">亚马逊</a>&nbsp;
+                <a href="http://www.vip.com/">唯品会</a>&nbsp;      
+                <a href="https://ju.taobao.com/">聚划算</a>&nbsp;
+                <a href="http://www.51fanli.com/">返利网</a> &nbsp;
+                <a href="http://www.dangdang.com/">当当</a>&nbsp;
+                <a ADD_DATE="37558807897" href="http://book.dangdang.com/">当当图书</a>&nbsp;
+                <a ADD_DATE="37559495091" href="http://123.sogou.com/static/gouwu.html">搜狗购物搜索</a>	&nbsp;
+                <a href="http://www.1688.com/?keywords=%25B0%25A2%25C0%25EF%25B0%25CD%25B0%25CD&cosite=baidujj&location=&trackid=2014000009505002">
+				阿里巴巴</a>&nbsp;
+				<a ADD_DATE="37558292500" href="http://www.vancl.com/">凡客诚品</a>&nbsp;
+				<a ADD_DATE="37558979695" href="http://www.lashou.com/">拉手团购</a>&nbsp;
+				<a ADD_DATE="37559323293" href="http://www.meituan.com">美团团购</a>&nbsp;
+				<a ADD_DATE="37558034802" href="http://tuan.baidu.com/">百度团购导航</a>&nbsp;
+				<a href="http://home.alipay.com/bank/paymentKJ.htm">快捷支付</a>	
+             </td>
+           </tr>
+          <tr width="100%" >
+            <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+           <span class="table_center_2td_table_classify"><a name="XinWen">新闻</a></span>         
+             </td>
+          </tr>
+          <tr width="100%">
+             <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top"> 
+               <a target="main" href="http://toutiao.sogou.com/?fr=sgxwtt">搜狗头条</a>&nbsp;
+               <a href="http://mini.eastday.com/?qid=riliscj">东方头条</a>&nbsp;
+               <a href="http://www.hao123.com/top">hao123热搜风云榜</a>&nbsp;
+               <a href="http://www.huanqiu.com/">环球网</a>&nbsp;
+               <a href="http://www.sina.com">新浪</a>&nbsp;
+               <a href="http://www.sohu.com/">搜狐</a>&nbsp;
+               <a ADD_DATE="75547456904" href="http://www.qq.com/">腾讯网</a>&nbsp;
+			   <a ADD_DATE="75545996615" href="http://news.ifeng.com/">凤凰网</a>  &nbsp;        
+              </td>
+          </tr>   
+         <tr width="100%" >
+            <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+           <span class="table_center_2td_table_classify"><a name="YinYue">音乐</a></span>         
+             </td>
+          </tr>
+          <tr width="100%">
+             <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top">
+                <a href="http://music.163.com/">网易云音乐</a>&nbsp;  
+				<a href="http://music.baidu.com/?from=new_mp3">百度音乐</a>&nbsp;   
+                <a href="http://www.dongting.com/?song_id=24953893">天天动听</a>&nbsp;  
+                <a ADD_DATE="75548401797" href="http://mp3.sogou.com/">搜狗音乐</a>&nbsp;  
+                <a href="http://www.kuwo.cn/yinyue/1142784/">酷我</a>&nbsp;                  
+                <a ADD_DATE="75548487696" href="http://mp3.baidu.com/">百度MP3</a>&nbsp;  
+                <a href="http://i.yinyuetai.com/31616782">音悦台</a>&nbsp;  
+                <a ADD_DATE="75546082515" href="http://douban.fm/">豆瓣电台</a>&nbsp;  
+                <a href="http://www.xiami.com/">虾米</a>&nbsp;  
+                <a _fcksavedurl="http://www.tingge123.com/" href="http://www.tingge123.com/">听歌123</a>&nbsp;  
+				<a href="http://www.lrc99.com/">歌词速配网</a>&nbsp;  				
+             </td>
+           </tr>  
+            <tr width="100%" >
+             <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+               <span class="table_center_2td_table_classify"><a name="ShiPin">视频</a></span>         
+             </td>
+           </tr>
+           <tr width="100%">
+             <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top">
+                <a href="http://kan.sogou.com/?to=newkan">搜狗最新热播</a>&nbsp;  
+                <a href="http://kan.sogou.com/zongyi/">搜狗影视</a>&nbsp;  
+                <a ADD_DATE="37559237393" href="http://v.sogou.com/">搜狗视频搜索</a>&nbsp;  
+                <a ADD_DATE="37558636098" href="http://www.xunlei.com/">迅雷看看</a>&nbsp;  
+                <a ADD_DATE="75546254313" href="http://www.qiyi.com/">爱奇艺</a>&nbsp;  
+                <a ADD_DATE="37559151494" href="http://www.pptv.com">PPTV视频</a>&nbsp;  
+                <a ADD_DATE="37558550198" href="http://www.youku.com/">优酷视频</a>&nbsp;  
+                <a ADD_DATE="37559409192" href="http://movie.tudou.com/">土豆视频</a>&nbsp;  
+                <a ADD_DATE="75546769709" href="http://tv.sohu.com/">搜狐高清</a>&nbsp;  
+				<a href="http://www.acfun.tv/">AcFun弹幕视频网</a>&nbsp;  
+				<a href="http://www.bilibili.tv/">B站Bilibili弹幕视频站</a>&nbsp;  
+				<a href="http://www.tucao.cc/">C站吐槽</a>&nbsp;  
+				<a href="http://www.drawyoo.com/">D站:原画交流网站</a>&nbsp;  
+				<a href="http://www.onijiang.com/">O站:欧尼酱</a>&nbsp;  
+				<a href="http://zuidiantai.com/">Z站:最电台(首家ACG电台)</a>&nbsp;  
+             </td>
+           </tr>    
+           <tr width="100%" >
+             <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+               <span class="table_center_2td_table_classify"><a name="SheQu">社区</a></span>         
+             </td>
+           </tr> 
+           <tr width="100%">
+            <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top">
+               <a href="https://www.zhihu.com/">知乎</a>&nbsp;
+               <a href="http://tieba.baidu.com/index.html">百度贴吧</a>&nbsp;
+               <a href="http://zhidao.baidu.com/">百度知道</a>&nbsp;
+               <a href="http://weibo.com/xiaoxiyouran/home?wvr=5">新浪微博</a>&nbsp;
+               <a href="https://www.douban.com/">豆瓣</a>&nbsp;
+               <a ADD_DATE="75547972300" href="http://focus.tianya.cn/">天涯社区</a>&nbsp;
+			   <a ADD_DATE="75548573596" href="http://www.mop.com/">猫扑社区</a>&nbsp;
+			   <a ADD_DATE="75548058200" href="http://www.douban.com/">豆瓣社区</a>&nbsp;
+               <a href="http://xiaoxiyouran.banzhu.co/">晓汐悠然</a>&nbsp;
+				<a href="http://t.qq.com/xiaofengchenwang4513">腾讯微博</a>&nbsp;
+                <a ADD_DATE="75548229998" href="http://t.sohu.com/">搜狐微博</a>&nbsp;
+               <a href="http://xiaoxiyouran.lofter.com/">网易Lofter</a>&nbsp;
+               <a href="http://www.renren.com/">人人</a> &nbsp;
+               <a href="http://www.lehu.pt/">上海乐乎pt</a>&nbsp;
+               <a href="http://tieba.baidu.com/p/4481838676">好妹子碎碎念吧</a>&nbsp;
+               <a href="http://www.mtime.com/">Mtime</a>&nbsp;
+               <a href="https://tuchong.com/">图虫</a>&nbsp;
+               <a href="https://www.facebook.com/">Facebook</a>&nbsp;
+			   <a href="https://twitter.com/">Twitter</a>&nbsp;
+			   <a href="https://www.tumblr.com/login">tumblr</a>&nbsp;
+			   <a href="http://www.henanshengmeixie.com/Upload/f788/92cb/8f1/">新大陆社区</a> &nbsp;
+               <a href="http://flickr.tuchong.com/">flickr图虫</a>&nbsp;
+			   <a href="http://www.padmag.cn/archives/tag/flickr">flickr-PADMAG视觉杂志</a>&nbsp;
+			   <a href="https://www.flickr.com/">flickr</a>&nbsp;
+			   <a href="https://foursquare.com/">Foursquare</a>&nbsp;
+			   <a href="http://www.haibao.com/">海报时尚网</a>&nbsp;
+               <a href="http://www.52pojie.cn/">吾爱破解论坛</a>&nbsp;
+               <a href="http://muchong.com/">小木虫互动社区</a>&nbsp;
+				
+            </td>
+           </tr>
+           <tr width="100%" >
+             <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+               <span class="table_center_2td_table_classify"><a name="Android">Android</a></span>         
+             </td>
+          </tr> 
+           <tr width="100%">
+            <td width="100%" id="table_center_2td_table_td_link" align="left" valign="top">
+                 <table class="Android_table">
+                 <tr>
+                     <td width="10%" class="Android_table_1td">
+                     热点
+                     </td>
+                     <td width="90%">
+                         <a href="https://news.browser.miui.com/#from=shangwangdaohang_tuijian&cate=%E6%8E%A8%E8%8D%90">一点资讯</a>&nbsp;
+                         <a href="http://www.hao123.com/top">hao123热搜风云榜</a>&nbsp;
+                         <a href="http://top.hao123.com/m/">百度风云榜</a>&nbsp;
+                         <a href="http://m.huanqiu.com/">环球网</a><&nbsp;
+                         <a href="http://m.mnw.cn/news/world/">国际新闻</a>&nbsp;
+                         <a href="http://m.weather.com.cn/mweather/101070101.shtml">天气</a>&nbsp;
+                         <a href="http://m.qzone.com/infocenter?g_f=">QQ空间</a>&nbsp;
+                         <a href="http://m.weibo.cn/p/102803?wm=5399_0012">新浪微博</a>&nbsp;
+                         <a href="https://www.zhihu.com/">知乎</a>&nbsp;
+                         <a href="http://tieba.baidu.com/?page=discovery">贴吧</a>&nbsp;
+                         <a href="http://m.douban.com/">豆瓣</a>&nbsp;
+                         <a href="http://sina.cn/?wm=4007">新浪网</a>&nbsp;
+                     </td>
+                 </tr>
+                 <tr>
+                     <td width="10%" class="Android_table_1td">
+                        搜索
+                     </td>
+                     <td width="90%">
+                         <a href="http://www.baidu.com/">百度</a>&nbsp;
+				         <a href="http://wap.hao123.com/">hao123</a>&nbsp; 
+				         <a href="http://m.sa.sm.cn/?uc_param_str=dnntnwvepffrgibijbprsv&from=ucjgg">神马搜索</a>&nbsp;
+                         <a href="http://wapbaike.baidu.com/">百度百科</a>&nbsp;
+                     </td>                 
+                 </tr>
+                 <tr>
+                     <td width="10%" class="Android_table_1td">
+                        生活
+                     </td>
+                     <td width="90%">
+                         <a href="http://i.meituan.com/">团购</a>&nbsp;
+				         <a href="http://m.ctrip.com/webapp/myctrip/">携程</a>&nbsp;
+						 <a href="http://touch.qunar.com/?bd_source=ucpz1">去哪儿</a>&nbsp;
+                         <a href="http://m.elong.com/">艺龙</a>&nbsp;
+                         <a href="http://m.taobao.com/">爱淘宝</a>&nbsp;
+                         <a href="https://www.tmall.com/">天猫</a>&nbsp;
+                         <a href="http://m.vip.com/?f=mxmgge">唯品会</a>&nbsp;
+						 <a href="http://m.jd.com/?cu=true&utm_source=baidu-pinzhuan&utm_medium=cpc&utm_campaign=t_288551095_baidupinzhuan&utm_term=ba6fb982ce824f8382e493214bab3b10_0_fd6bf9ea8679479583397494aa75e5c4">京东</a>&nbsp;
+						<a href="http://www.amazon.cn/?tag=bmsl-23&hvadid=4344510854&hvdev=m&ref=pd_sl_3bj2prtrjg_e">亚马逊</a>&nbsp;
+				        <a href="http://www.12306.cn/mormhweb/">12306</a>&nbsp;
+				        <a href="http://h5.m.taobao.com/app/cz/cost.html?denom=50&clientSource=ucbrowser">充话费</a>&nbsp;
+				        <a href="http://map.baidu.com/mobile/webapp/index/index/foo=bar/tab=place">百度地图</a>&nbsp;
+                        <a target="main" href="http://m.amap.com/">高德地图</a>&nbsp;
+                     </td>                 
+                 </tr>    
+                 </table>
+            </td>
+            </tr>
+			<!--以下继续接其他链接添加-->
+			
+			
+			<tr width="100%" >
+             <td width="100%" nowrap="nowrap" bgcolor="BAE3F9">
+               <span class="table_center_2td_table_classify"><a name="XiangCe">相册</a></span>         
+             </td>
+           </tr> 
+           <tr width="100%">
+               <td width="100%" align="center" valign="top">			     
+					<iframe src="iframe\相册\个性相册\index.htm" width="100%" height="400px" frameborder="0" align="left" scrolling="no">
+					</iframe>
+			   </td>
+			
+		   </tr>	
+           <!--以下继续接其他链接添加-->   
+                     
+       </table>    
+    </td>
+    
+    
+    <!-----------------------------右侧信息公告栏--------------------------------------------------->
+    <td width="25%" class="center_table_3td_table" align="center" >
+        <table width="100%" border="0">
+            <tr>
+              <td width="100%" bgcolor="#0099CC">
+                 <font face="Courier New, Courier, monospace" color="#FFf"><b><em>LIFE WILL BE DIFFERENT</em></b></font>
+              </td>
+            </tr>
+            <tr>
+               <td width="100%" align="center" valign="top">
+                 <!-- <marquee scrollAmount="2" scrollDelay="60"  onmouseover="this.stop()" onmouseout="this.start()"  direction="up" loop="-1" style="width:100%;height:100px; background:#eeeeee">
+					<font color="#blue">日程</font><br>
+						......
+				  </marquee>-->
+                 <!--------日历部分（start）------------->
+				  <!--
+                     <div id="CalendarMain">
+						  <div id="title"> <a class="selectBtn month" href="javascript:" onclick="CalendarHandler.CalculateLastMonthDays();"><</a><a class="selectBtn selectYear" href="javascript:" onClick="CalendarHandler.CreateSelectYear(CalendarHandler.showYearStart);">2014年</a><a class="selectBtn selectMonth" onClick="CalendarHandler.CreateSelectMonth()">6月</a> <a class="selectBtn nextMonth" href="javascript:" onClick="CalendarHandler.CalculateNextMonthDays();">></a><a class="selectBtn currentDay" href="javascript:" onClick="CalendarHandler.CreateCurrentCalendar(0,0,0);">今天</a></div>
+						  <div id="context">
+							<div class="week">
+							  <h3> 一 </h3>
+							  <h3> 二 </h3>
+							  <h3> 三 </h3>
+							  <h3> 四 </h3>
+							  <h3> 五 </h3>
+							  <h3> 六 </h3>
+							  <h3> 日 </h3>
+							</div>
+							<div id="center">
+							  <div id="centerMain">
+								<div id="selectYearDiv"></div>
+								<div id="centerCalendarMain">
+								  <div id="Container"></div>
+								</div>
+								<div id="selectMonthDiv"></div>
+							  </div>
+							</div>
+							<div id="foots"><a id="footNow">19:14:34</a></div>
+						  </div>
+						</div>
+				    -->
+					
+						<!-- <iframe src="iframe\日历\rili.html" width="100%" height="303" frameborder="0" align="left" scrolling="no"> -->
+						<!-- </iframe> -->
+					<!-- <iframe src="E:\Desktop\20161104xiaoxiyouran_purify\20161104xiaoxiyouran_purify\iframe\仿百度日历\jiaoben3907\index.html" width="100%" height="400" frameborder="0" align="left" valign="top" scrolling="#"> -->
+						<!-- </iframe> -->
+						
+						<iframe src="iframe\百度js日历\百度JS日历农历代码\index.html" width="100%" height="260" frameborder="0" align="left" scrolling="no">
+						</iframe>
+                 <!--------日历部分（end）-------------> 
+               </td>
+            </tr>
+			
+			<!-----------渐变滚动图片--------------->
+			<tr>
+              <td width="100%" bgcolor="#0099CC">
+                 <font face="Courier New, Courier, monospace" color="#FFf"><b><em>SCENERY IS NOT ONLY SCENERY</em></b></font>
+              </td>
+            </tr>
+			<tr>
+			   <td width="100%" align="center" valign="top">			     
+					<iframe src="iframe\图片循环_渐变滚动\JSWK.渐变播放广告图片.html" width="320" height="200" frameborder="0" align="left" scrolling="no">
+					</iframe>
+			   </td>
+			</tr>
+			
+			<!-----------音乐播放器--------------->
+			<tr>
+              <td width="100%" bgcolor="#0099CC">
+                 <font face="Courier New, Courier, monospace" color="#FFf"><b><em>LIGHT MOOD LIGHT LIFE</em></b></font>
+              </td>
+            </tr>
+			<tr>
+			   <td width="100%" align="center" valign="top">			     
+					<iframe src="iframe/wanggou音乐播放器/index.html" width="100%" height="290" frameborder="0" align="left" scrolling="no">
+					</iframe>
+			   </td>
+			</tr>
+			
+			<!-----------记事本--------------->
+			<tr>
+              <td width="100%" bgcolor="#0099CC">
+                 <font face="Courier New, Courier, monospace" color="#FFf"><b><em>PLAN TO SHARE LIFE</em></b></font>
+              </td>
+            </tr>
+			<tr>
+			   <td width="100%" align="center" valign="top">			     
+					<div id="content">
+						 <div id="post">
+							 <textarea class="transition"></textarea>
+							 <input id="postBt" type="button" value="添加备忘"/>
+							 <input id="clearBt" type="button" value="清空所有数据"/>
+						 </div>
+						 <div id="comment"></div>
+					 </div>
+			   </td>
+			</tr>
+			
+        </table>
+    </td>
+  </tr>
+</table>
+<!------------------------------------------------------------------------------------->
+<!--CSS:foot 表格区-->
+<table class="foot_table"> <!--底部脚本-->
+   <tr> 
+       <td class="foot_table_1tr" align="center">
+			 <script Language="JavaScript">
+                document.write
+                ("最后修改日期" + document.lastModified);
+              </Script>
+             
+       </td>    
+  </tr>
+  <tr>
+  <td class="foot_table_2tr" align="center" >   <!--注：CSS样式表一定要用在<td>标签上，否则颜色等属性无效-->
+    如果您有任何问题，请联系：<font face="Georgia, Times New Roman, Times, serif"><a href="mailto:xiaoxiyouran@163.com">xiaoxiyouran@163.com</a></font>
+     </td>
+  </tr>
+  <tr>
+     <td class="foot_table_3tr" align="center">
+       &copy;版权所有：晓汐悠然 &nbsp;<font color="#FF3300">严禁用于商业用途！</font>
+     </td>
+  </tr>
+</table>
+
+</body>
+</html>
