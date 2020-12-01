@@ -31,6 +31,8 @@
 
 
 ## git 提交事项
+默认在 **master** 分支上修改即可。 
+
 1： 要提交到远程的 master 分支
 
     # 如果 在 gh-pages 修改的，就将本地的 gh-pages 覆盖掉远程的 maser 
@@ -87,6 +89,6 @@
 
 ## 博客参考
 1： 三分钟搭建: https://zhuanlan.zhihu.com/p/28321740
-
+2： hexo 搭建更精美的博客图: https://zhuanlan.zhihu.com/p/35668237
 
 
